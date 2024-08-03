@@ -5,6 +5,7 @@ from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
+
 def test_model_training():
     # Load data
     boston = load_boston()
@@ -24,7 +25,9 @@ def test_model_training():
     joblib.dump(model, 'test_model.joblib')
 
     # Check if the model file is created
-    assert os.path.exists('test_model.joblib'), "Model file was not created"
+    assert os.path.exists('test_model.joblib'), \
+           "Model file was not created"
+
 
 def test_model_prediction():
     # Load the saved model
