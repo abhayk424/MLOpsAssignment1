@@ -11,7 +11,7 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Define environment variable
-ENV NAME BostonHousingModel
+ENV NAME CALIFORNIAHousingModel
 
 # Run model.py when the container launches
 CMD ["python", "model.py"]
