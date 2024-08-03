@@ -1,14 +1,14 @@
 # test_model.py
 import joblib
 import os
-from sklearn.datasets import load_boston
+from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
 
 def test_model_training():
     # Load data
-    boston = load_boston()
+    boston = fetch_california_housing()
     X, y = boston.data, boston.target
 
     # Split data
@@ -35,7 +35,7 @@ def test_model_prediction():
     model = joblib.load('test_model.joblib')
 
     # Load data
-    boston = load_boston()
+    boston = fetch_california_housing()
     X, _ = boston.data, boston.target
 
     # Make predictions
