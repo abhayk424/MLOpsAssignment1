@@ -1,4 +1,7 @@
+numpy
+pandas
+matplotlib
+optuna
 scikit-learn
 joblib
-flake8
-pytest
+flask
