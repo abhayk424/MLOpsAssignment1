@@ -1,7 +1,12 @@
 M3: Model Experimentation and Packaging
-Objective: Train a machine learning model, perform hyperparameter tuning,
+
+Objective:
+Train a machine learning model, perform hyperparameter tuning,
 and package the model for deployment.
+
+
 Tasks:
+
 1. Hyperparameter Tuning:
 • Use a library like Optuna or Scikit-learn’s GridSearchCV to perform
 hyperparameter tuning on a chosen model.
