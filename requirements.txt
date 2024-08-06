@@ -5,3 +5,5 @@ optuna
 scikit-learn
 joblib
 flask
+request
+jsonify
