@@ -1,0 +1,4 @@
+[core]
+    remote = titanic_remote
+['remote "titanic_remote"']
+    url = ../remote
