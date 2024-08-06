@@ -1,17 +1,10 @@
-# Dockerfile
-FROM python:3.9-slim
+FROM python:3.9-slim-buster
 
-# Set working directory
 WORKDIR /app
 
-# Copy the current directory contents into the container
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
 COPY . .
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Define environment variable
-ENV NAME CaliforniaHousingModel
-
-# Run model.py when the container launches
-CMD ["python", "model.py"]
+CMD ["python", "app.py"]
