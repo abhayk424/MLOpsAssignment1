@@ -1,0 +1,3 @@
+# Ignore all .joblib and .pkl model files
+*.joblib
+*.pkl
