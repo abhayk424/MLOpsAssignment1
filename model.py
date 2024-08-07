@@ -4,12 +4,17 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import optuna
 from sklearn.ensemble import RandomForestClassifier
+import os
+
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
 
 def preprocess_data(train_df):
     """Preprocesses the training data."""
 
      # Dropping Ticket and Cabin and Name columns
-    train_df = train_df.drop(["Ticket", "Cabin", "Name"], axis=1)
+    train_df = train_df.drop(["PassengerId", "Ticket", "Cabin", "Name"], axis=1)
 
     # Sex Feature
     train_df["Sex"] = train_df["Sex"].map({"female": 1, "male": 0}).astype(int)
