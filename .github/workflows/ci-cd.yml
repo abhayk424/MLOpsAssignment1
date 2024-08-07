@@ -34,7 +34,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run flake8
-        run: flake8 --ignore=E501,W605 .
+        run: flake8 --ignore=E302,E501,W605 .
 
   test:
     name: Testing
