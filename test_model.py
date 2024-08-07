@@ -1,44 +1,50 @@
-# test_model.py
-import joblib
-import os
-from sklearn.datasets import fetch_california_housing
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-
+# Import necessary libraries
+import joblib  # For loading and saving the model
+import os  # For file operations
+from sklearn.datasets import fetch_california_housing  # Import dataset
+from sklearn.model_selection import train_test_split  # For splitting the dataset
+from sklearn.linear_model import LinearRegression  # Linear Regression model
 
 def test_model_training():
-    # Load data
-    boston = fetch_california_housing()
-    X, y = boston.data, boston.target
+    """
+    Test the training of the Linear Regression model and the saving of the trained model.
+    """
 
-    # Split data
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2,
-                                                        random_state=42)
+    # Load the California housing dataset
+    california = fetch_california_housing()
+    X, y = california.data, california.target  # Features and target variable
 
-    # Train model
+    # Split the dataset into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    # Initialize the Linear Regression model
     model = LinearRegression()
+
+    # Train the model using the training data
     model.fit(X_train, y_train)
 
     # Check if the model is trained successfully
     assert model is not None, "Model training failed"
 
-    # Save model
+    # Save the trained model to a file
     joblib.dump(model, 'test_model.joblib')
 
-    # Check if the model file is created
-    assert os.path.exists('test_model.joblib'), \
-           "Model file was not created"
-
+    # Check if the model file is created successfully
+    assert os.path.exists('test_model.joblib'), "Model file was not created"
 
 def test_model_prediction():
-    # Load the saved model
+    """
+    Test the prediction capability of the saved Linear Regression model.
+    """
+
+    # Load the saved model from the file
     model = joblib.load('test_model.joblib')
 
-    # Load data
-    boston = fetch_california_housing()
-    X, _ = boston.data, boston.target
+    # Load the California housing dataset
+    california = fetch_california_housing()
+    X, _ = california.data, california.target  # Only features are needed for prediction
 
-    # Make predictions
+    # Make predictions on the first 5 samples of the dataset
     predictions = model.predict(X[:5])
 
     # Check if predictions are made successfully
